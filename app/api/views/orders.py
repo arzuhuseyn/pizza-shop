@@ -55,7 +55,7 @@ class CreateOrderAPIView(APIView):
     serializer_class = OrderSerializer
     permission_classes = [permissions.AllowAny]
 
-    #@handle_err
+    @handle_err
     def post(self, request, *args, **kwargs):
         result = create_order.run(
             customer=request.data.get('customer_id'),
