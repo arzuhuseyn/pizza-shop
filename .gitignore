@@ -6,4 +6,4 @@ redisdb/
 *.log
 app/db.sqlite3
 app/media
-*migrations/
+**/migrations/

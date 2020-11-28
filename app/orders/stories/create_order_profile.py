@@ -11,8 +11,8 @@ class CreateOrderProfile:
         I.persist_result
 
     def validate_inputs(self, ctx):
-        for v in ctx.params.values():
-            return Failure() if v == None or type(v) != str else Success()
+        i = all(isinstance(v, str) for v in ctx.params.values())
+        return Success() if i else Failure()
 
     def persist_result(self, ctx):
         ctx.result = self.repo.create_order_profile(ctx.user_id, ctx.params)

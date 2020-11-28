@@ -1,30 +1,39 @@
-import uuid
-
 from django.db import models
 
 from app.utils.abc import BaseModel
-
+from app.utils.helpers import STATUS_TYPES
 
 class Order(BaseModel):
-    STATUS_TYPES = (
-        (1, "Accepted"),
-        (2, "Preparing"),
-        (3, "On the way"),
-        (4, "Delivered"),
-        (5, "Declined")
-    )
-    uuid = models.CharField(max_length=40, default=str(uuid.uuid4()))
     customer=models.ForeignKey(
         "orders.OrderProfile",
         verbose_name="Customer",
         on_delete=models.CASCADE
     )
-    status=models.IntegerField(choices=STATUS_TYPES, default=1)
+    status=models.IntegerField(choices=STATUS_TYPES, default=0)
     items=models.JSONField(verbose_name="Order items")
+    updated=models.BooleanField(default=False)
 
     class Meta:
         verbose_name="Order"
         verbose_name_plural="Orders"
 
     def __str__(self):
-        return f"{self.customer} - ORDER NO: {self.uuid}"
+        return f"{self.customer} - ORDER NO: {self.id}"
+    
+    def save(self, *args, **kwargs):
+        if self.updated:
+            self.status=0
+            self.updated=False
+        return super().save(*args, **kwargs)
+
+
+
+class OrderLog(BaseModel):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="update_logs")
+
+    class Meta:
+        verbose_name="Order Log"
+        verbose_name_plural="Order Logs"
+
+    def __str__(self):
+        return f"OrderLog - {self.order.id}"

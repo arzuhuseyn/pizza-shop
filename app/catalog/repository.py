@@ -43,3 +43,9 @@ class CatalogRepository:
 
     def list_ingredients(self):
         return Ingredient.objects.all()
+
+    def get_pizzas_by_id(self, ids):
+        return Pizza.objects.filter(id__in=ids)
+
+    def get_ingredients_by_id(self, ids):
+        return Ingredient.objects.filter(id__in=ids)

@@ -1,0 +1,707 @@
+{
+	"info": {
+		"_postman_id": "d89f987e-d5b2-47d3-b297-b3a937e91181",
+		"name": "Pizza Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer_id\" : 1,\n    \"items\" : [\n        {\"id\": 1, \"size\" : \"m\", \"count\": 2, \"ingredients\": [1,2]},\n        {\"id\": 1, \"size\" : \"l\", \"count\": 1, \"ingredients\": [2]}\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/orders/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"create",
+						""
+					]
+				},
+				"description": "Create Order"
+			},
+			"response": [
+				{
+					"name": "Create Order Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_id\" : 1,\n    \"items\" : [{\"id\": 1, \"size\" : \"m\", \"count\": 2, \"ingredients\": [1,2]}]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/orders/create/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"create",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 28 Nov 2020 09:25:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "489"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"customer\": {\n        \"id\": 1,\n        \"created_at\": \"2020-11-26T17:43:10.437997Z\",\n        \"updated_at\": \"2020-11-26T17:43:10.438038Z\",\n        \"name\": \"Arzu\",\n        \"surname\": \"Huseynov\",\n        \"address\": \"B. Aliyev\",\n        \"phone\": \"0508742922\",\n        \"user\": 1\n    },\n    \"created_at\": \"2020-11-28T09:25:21.918259Z\",\n    \"updated_at\": \"2020-11-28T09:25:21.918291Z\",\n    \"uuid\": \"5aadf991-5c39-4f2d-8728-6cd606d964f4\",\n    \"status\": 1,\n    \"items\": [\n        {\n            \"id\": 1,\n            \"name\": \"Margaritta\",\n            \"image\": \"/media/CATALINA-03_Yf6zNwY.jpeg\",\n            \"size\": \"m\",\n            \"count\": 2,\n            \"additional_ingredients\": [\n                \"Test1\",\n                \"Test2\"\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Retrieve Update Delete Order",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\" : [\n        {\"id\": 1, \"size\" : \"m\", \"count\": 2, \"ingredients\": [1,2]},\n        {\"id\": 1, \"size\" : \"m\", \"count\": 6, \"ingredients\": [2]}\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/orders/16/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"16",
+						""
+					]
+				},
+				"description": "Create Order"
+			},
+			"response": [
+				{
+					"name": "Delete Order Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\" : [\n        {\"id\": 1, \"size\" : \"m\", \"count\": 2, \"ingredients\": [1,2]},\n        {\"id\": 1, \"size\" : \"m\", \"count\": 1, \"ingredients\": [2]}\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/orders/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"3",
+								""
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 28 Nov 2020 11:44:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.5"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Retrieve Order Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\" : [\n        {\"id\": 1, \"size\" : \"m\", \"count\": 2, \"ingredients\": [1,2]},\n        {\"id\": 1, \"size\" : \"m\", \"count\": 1, \"ingredients\": [2]}\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/orders/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"3",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 28 Nov 2020 11:43:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "565"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"customer\": {\n        \"id\": 1,\n        \"created_at\": \"2020-11-26T17:43:10.437997Z\",\n        \"updated_at\": \"2020-11-26T17:43:10.438038Z\",\n        \"name\": \"Arzu\",\n        \"surname\": \"Huseynov\",\n        \"address\": \"B. Aliyev\",\n        \"phone\": \"0508742922\",\n        \"user\": 1\n    },\n    \"update_logs\": [],\n    \"created_at\": \"2020-11-28T09:06:09.018491Z\",\n    \"updated_at\": \"2020-11-28T09:06:09.018521Z\",\n    \"status\": 1,\n    \"items\": [\n        {\n            \"id\": 1,\n            \"name\": \"Margaritta\",\n            \"size\": \"m\",\n            \"count\": 2,\n            \"image\": \"/media/CATALINA-03_Yf6zNwY.jpeg\",\n            \"ingredients\": [\n                \"Test1\",\n                \"Test2\"\n            ]\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Margaritta\",\n            \"size\": \"m\",\n            \"count\": 1,\n            \"image\": \"/media/CATALINA-03_Yf6zNwY.jpeg\",\n            \"ingredients\": [\n                \"Test2\"\n            ]\n        }\n    ]\n}"
+				},
+				{
+					"name": "Update Order Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\" : [\n        {\"id\": 1, \"size\" : \"m\", \"count\": 2, \"ingredients\": [1,2]},\n        {\"id\": 1, \"size\" : \"m\", \"count\": 1, \"ingredients\": [2]}\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/orders/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"3",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 28 Nov 2020 11:43:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "450"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"customer\": {\n        \"id\": 1,\n        \"created_at\": \"2020-11-26T17:43:10.437997Z\",\n        \"updated_at\": \"2020-11-26T17:43:10.438038Z\",\n        \"name\": \"Arzu\",\n        \"surname\": \"Huseynov\",\n        \"address\": \"B. Aliyev\",\n        \"phone\": \"0508742922\",\n        \"user\": 1\n    },\n    \"update_logs\": [],\n    \"created_at\": \"2020-11-28T09:06:09.018491Z\",\n    \"updated_at\": \"2020-11-28T09:06:09.018521Z\",\n    \"status\": 1,\n    \"items\": [\n        {\n            \"id\": 1,\n            \"name\": \"Margaritta\",\n            \"size\": \"m\",\n            \"image\": \"/media/CATALINA-03_Yf6zNwY.jpeg\",\n            \"additional_ingredients\": [\n                \"Test1\",\n                \"Test2\"\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Retrieve Update Order Status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\" : 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/orders/16/status/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"16",
+						"status",
+						""
+					]
+				},
+				"description": "Create Order"
+			},
+			"response": [
+				{
+					"name": "Update Order Status Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\" : 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/orders/16/status/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"16",
+								"status",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 28 Nov 2020 12:27:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "301"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Preparing\",\n    \"customer\": {\n        \"id\": 1,\n        \"created_at\": \"2020-11-26T17:43:10.437997Z\",\n        \"updated_at\": \"2020-11-26T17:43:10.438038Z\",\n        \"name\": \"Arzu\",\n        \"surname\": \"Huseynov\",\n        \"address\": \"B. Aliyev\",\n        \"phone\": \"0508742922\",\n        \"user\": 1\n    },\n    \"created_at\": \"2020-11-28T11:49:14.887870Z\",\n    \"updated_at\": \"2020-11-28T12:27:05.363525Z\"\n}"
+				},
+				{
+					"name": "Retrieve Order Status Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\" : 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/orders/16/status/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"16",
+								"status",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 28 Nov 2020 12:27:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "301"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Preparing\",\n    \"customer\": {\n        \"id\": 1,\n        \"created_at\": \"2020-11-26T17:43:10.437997Z\",\n        \"updated_at\": \"2020-11-26T17:43:10.438038Z\",\n        \"name\": \"Arzu\",\n        \"surname\": \"Huseynov\",\n        \"address\": \"B. Aliyev\",\n        \"phone\": \"0508742922\",\n        \"user\": 1\n    },\n    \"created_at\": \"2020-11-28T11:49:14.887870Z\",\n    \"updated_at\": \"2020-11-28T12:27:05.363525Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Orders List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/orders/?customer_id=1&status=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						""
+					],
+					"query": [
+						{
+							"key": "customer_id",
+							"value": "1"
+						},
+						{
+							"key": "status",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List / Filter by customer id and status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/orders/?customer_id=1&status=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								""
+							],
+							"query": [
+								{
+									"key": "customer_id",
+									"value": "1"
+								},
+								{
+									"key": "status",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 28 Nov 2020 12:38:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "927"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 16,\n        \"customer\": {\n            \"id\": 1,\n            \"created_at\": \"2020-11-26T17:43:10.437997Z\",\n            \"updated_at\": \"2020-11-26T17:43:10.438038Z\",\n            \"name\": \"Arzu\",\n            \"surname\": \"Huseynov\",\n            \"address\": \"B. Aliyev\",\n            \"phone\": \"0508742922\",\n            \"user\": 1\n        },\n        \"update_logs\": [\n            {\n                \"updated_at\": \"2020-11-28T11:49:22.536887Z\"\n            },\n            {\n                \"updated_at\": \"2020-11-28T11:51:29.561945Z\"\n            },\n            {\n                \"updated_at\": \"2020-11-28T11:56:47.714361Z\"\n            },\n            {\n                \"updated_at\": \"2020-11-28T11:56:51.012630Z\"\n            },\n            {\n                \"updated_at\": \"2020-11-28T11:56:52.248403Z\"\n            },\n            {\n                \"updated_at\": \"2020-11-28T12:26:36.819555Z\"\n            },\n            {\n                \"updated_at\": \"2020-11-28T12:26:44.892879Z\"\n            },\n            {\n                \"updated_at\": \"2020-11-28T12:27:05.365944Z\"\n            }\n        ],\n        \"created_at\": \"2020-11-28T11:49:14.887870Z\",\n        \"updated_at\": \"2020-11-28T12:27:05.363525Z\",\n        \"status\": 2,\n        \"items\": [\n            {\n                \"id\": 1,\n                \"name\": \"Margaritta\",\n                \"size\": \"m\",\n                \"count\": 2,\n                \"image\": \"/media/CATALINA-03_Yf6zNwY.jpeg\",\n                \"ingredients\": [\n                    \"Test1\",\n                    \"Test2\"\n                ]\n            },\n            {\n                \"id\": 1,\n                \"name\": \"Margaritta\",\n                \"size\": \"m\",\n                \"count\": 6,\n                \"image\": \"/media/CATALINA-03_Yf6zNwY.jpeg\",\n                \"ingredients\": [\n                    \"Test2\"\n                ]\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Pizza List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/catalog/items/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"catalog",
+						"items",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ingredients List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/catalog/ingredients/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"catalog",
+						"ingredients",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

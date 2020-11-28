@@ -11,7 +11,7 @@ class Pizza(BaseModel):
         verbose_name = "Pizza"
         verbose_name_plural = "Pizzas"
 
-    def choice_size(self, v=None):
+    def choose_size(self, v=None):
         sizes = {
             's' : 'Small',
             'm' : 'Medium',
