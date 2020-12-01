@@ -9,6 +9,13 @@ class OrderProfileSerializer(serializers.ModelSerializer):
         model = OrderProfile
         fields = '__all__'
 
+
+class OrderProfileWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderProfile
+        exclude = ['user']
+
+
 class OrderLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderLog

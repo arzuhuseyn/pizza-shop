@@ -13,6 +13,7 @@ from app.utils.decorators import handle_err
 
 from api.serializers import (
     OrderProfileSerializer,
+    OrderProfileWriteSerializer,
     OrderSerializer,
     OrderStatusSerializer
 )
@@ -42,7 +43,7 @@ class OrderProfileAPIView(APIView):
 
 
 class OrderProfileCreateAPIView(APIView):
-    serializer_class = OrderProfileSerializer
+    serializer_class = OrderProfileWriteSerializer
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, *args, **kwargs):

@@ -5,6 +5,7 @@ from .catalog import (
 
 from .orders import (
     OrderProfileSerializer,
+    OrderProfileWriteSerializer,
     OrderSerializer,
     OrderStatusSerializer
 )

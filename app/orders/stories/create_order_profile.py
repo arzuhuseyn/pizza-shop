@@ -12,7 +12,7 @@ class CreateOrderProfile:
 
     def validate_inputs(self, ctx):
         i = all(isinstance(v, str) for v in ctx.params.values())
-        return Success() # if i else Failure()
+        return Success() if i else Failure()
 
     def persist_result(self, ctx):
         ctx.result = self.repo.create_order_profile(ctx.user_id, ctx.params)
