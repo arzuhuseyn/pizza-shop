@@ -38,6 +38,12 @@ function setup() {
     ${CURRENT_PATH}/.venv/bin/pip install -r ${CURRENT_PATH}/requirements.txt
     source ${CURRENT_PATH}/.venv/bin/activate
     cd ${CURRENT_PATH}/app
+
+    # Migrations
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    
+    # Start Server
     python3 manage.py runserver
   else
     # Python is not installed
