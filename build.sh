@@ -40,8 +40,11 @@ function setup() {
     cd ${CURRENT_PATH}/app
 
     # Migrations
-    python3 manage.py makemigrations
-    python3 manage.py migrate
+    python3 manage.py makemigrations orders
+    python3 manage.py makemigrations catalog
+
+    python3 manage.py migrate orders
+    python3 manage.py migrate catalog
     
     # Start Server
     python3 manage.py runserver
