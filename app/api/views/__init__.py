@@ -8,5 +8,6 @@ from .orders import (
     OrderAPIView,
     CreateOrderAPIView,
     UpdateOrderStatusAPIView,
-    OrderListAPIView
+    OrderListAPIView,
+    OrderProfileCreateAPIView
 )

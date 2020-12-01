@@ -19,7 +19,11 @@ from api.serializers import (
 
 from orders.models import OrderProfile, Order
 from orders.repository import OrderRepository
-from orders.stories import create_order, update_order_items, update_order_status
+from orders.stories import (
+    create_order, create_order_profile,
+    update_order_items, update_order_status
+)
+
 
 order_repo = OrderRepository()
 
@@ -35,6 +39,18 @@ class OrderProfileAPIView(APIView):
             order_repo.get_order_profile(pk)
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class OrderProfileCreateAPIView(APIView):
+    serializer_class = OrderProfileSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = request.user.id if request.user else None 
+        result = create_order_profile.run(user_id=user, params=serializer.data)
+        return Response(serializer.data)
 
 
 class OrderListAPIView(ListAPIView):
